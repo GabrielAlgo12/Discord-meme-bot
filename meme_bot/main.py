@@ -22,6 +22,15 @@ async def duck(ctx):
     await ctx.send(image_url)
 
 @bot.command()
+async def animal(ctx):
+        # ¡Vamos a almacenar el archivo de la biblioteca Discord convertido en esta variable!
+        img_name2 = random.choice(os.listdir("meme_bot/images2"))
+        with open(f"meme_bot/images2/{img_name2}","rb") as f:
+            picture2 = discord.File(f)
+            # A continuación, podemos enviar este archivo como parámetro.
+            await ctx.send(file=picture2)
+
+@bot.command()
 async def mem(ctx):
         # ¡Vamos a almacenar el archivo de la biblioteca Discord convertido en esta variable!
         img_name = random.choice(os.listdir("meme_bot/images"))
